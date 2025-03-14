@@ -22,6 +22,7 @@
                 <div class="space-y-4">
                     <div>
                         <label for="email" class="fieldset-label">Email</label>
+                        <!-- svelte-ignore a11y_autofocus -->
                         <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} placeholder="Email" bind:value={$form.email} autofocus required />
 
                         {#if $form.errors.email}
