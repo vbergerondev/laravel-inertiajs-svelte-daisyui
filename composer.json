@@ -59,7 +59,8 @@
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
         ],
         "pint": "pint",
-        "larastan": "phpstan analyse --memory-limit=-1"
+        "larastan": "phpstan analyse --memory-limit=-1",
+        "test": "pest"
     },
     "extra": {
         "laravel": {
