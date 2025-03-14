@@ -22,7 +22,7 @@
                 <div class="space-y-4">
                     <div>
                         <label for="email" class="fieldset-label">Email</label>
-                        <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} placeholder="Email" bind:value={$form.email} autofocus />
+                        <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} placeholder="Email" bind:value={$form.email} autofocus required />
 
                         {#if $form.errors.email}
                             <p class="text-error">{$form.errors.email}</p>
@@ -31,12 +31,15 @@
 
                     <div>
                         <label for="password" class="fieldset-label">Password</label>
-                        <input type="password" id="password" class="input w-full" placeholder="Password" bind:value={$form.password} />
+                        <input type="password" id="password" class="input w-full" placeholder="Password" bind:value={$form.password} required />
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-neutral mt-4" disabled={$form.processing}>Login</button>
+                <button type="submit" class="btn btn-neutral mt-4 w-full" disabled={$form.processing}>Login</button>
 
+                <div class="divider">OR</div>
+
+                <div class="text-center">If you don't have an account yet, <a href="/register" class="link">create an account</a>.</div>
             </form>
         </div>
     </div>

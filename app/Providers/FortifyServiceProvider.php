@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -28,6 +29,9 @@ final class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::loginView(fn (): Response => inertia('Auth/Login'));
+        Fortify::registerView(fn (): Response => inertia('Auth/Register'));
+
+        Fortify::createUsersUsing(CreateNewUser::class);
 
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
