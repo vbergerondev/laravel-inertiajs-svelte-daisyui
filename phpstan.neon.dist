@@ -8,3 +8,6 @@ parameters:
         - app/
 
     level: 10
+
+rules:
+    - Spatie\Ray\PHPStan\RemainingRayCallRule
