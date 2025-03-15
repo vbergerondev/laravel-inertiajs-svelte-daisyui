@@ -23,10 +23,14 @@ services:
         volumes:
             - 'pgsql-data:/var/lib/postgresql/data'
             - './docker/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
-        healthcheck:
-            test: [ "CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}" ]
-            retries: 3
-            timeout: 5s
+
+    redis:
+        image: redis
+        ports:
+            - '6379:6379'
+        volumes:
+            - 'redis-data:/data'
 
 volumes:
     pgsql-data: {}
+    redis-data: {}
