@@ -12,5 +12,8 @@ RUN apk update \
     && apk upgrade \
     && apk add bash
 
+# Disable healthchecks
+HEALTHCHECK NONE
+
 # Drop back to our unprivileged user
 USER www-data
