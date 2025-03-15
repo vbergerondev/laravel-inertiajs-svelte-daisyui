@@ -1,0 +1,32 @@
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        ports:
+            - '80:8080'
+        environment:
+            PHP_OPCACHE_ENABLE: 1
+        volumes:
+            - '.:/var/www/html'
+        command: ['php', '/var/www/html/artisan', 'serve', '--port=8080', '--host=0.0.0.0']
+
+    pgsql:
+        image: 'postgres:17'
+        ports:
+            - '5432:5432'
+        environment:
+            PGPASSWORD: '${DB_PASSWORD}'
+            POSTGRES_DB: '${DB_DATABASE}'
+            POSTGRES_USER: '${DB_USERNAME}'
+            POSTGRES_PASSWORD: '${DB_PASSWORD}'
+        volumes:
+            - 'pgsql-data:/var/lib/postgresql/data'
+            - './docker/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
+        healthcheck:
+            test: [ "CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}" ]
+            retries: 3
+            timeout: 5s
+
+volumes:
+    pgsql-data: {}

@@ -23,7 +23,7 @@
             <form onsubmit={submit}>
                 <div class="space-y-4">
                     <div>
-                        <label for="name" class="fieldset-label">Name</label>à
+                        <label for="name" class="fieldset-label">Name</label>
                         <!-- svelte-ignore a11y_autofocus -->
                         <input type="text" id="name" class="input w-full" class:input-error={$form.errors.name} placeholder="John Doe" bind:value={$form.name} autofocus required />
                         {#if $form.errors.name}
