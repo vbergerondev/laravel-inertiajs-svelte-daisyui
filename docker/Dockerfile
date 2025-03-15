@@ -1,4 +1,8 @@
-FROM serversideup/php:8.4-fpm-nginx-alpine
+FROM serversideup/php:8.4-cli-alpine
+
+WORKDIR /var/www/html
+
+ENV PHP_OPCACHE_ENABLE=1
 
 # Switch to root so we can do root things
 USER root
@@ -11,9 +15,6 @@ COPY ./docker/xdebug.ini /usr/local/etc/php/conf.d/
 RUN apk update \
     && apk upgrade \
     && apk add bash
-
-# Disable healthchecks
-HEALTHCHECK NONE
 
 # Drop back to our unprivileged user
 USER www-data
