@@ -12,4 +12,9 @@ export default defineConfig({
         tailwindcss(),
         svelte(),
     ],
+    server: {
+        watch: {
+            usePolling: true,
+        }
+    }
 });
