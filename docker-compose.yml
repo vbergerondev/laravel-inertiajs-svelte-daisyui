@@ -36,14 +36,6 @@ services:
         volumes:
             - '.:/var/www/html'
 
-    scheduler:
-        build:
-            context: .
-            dockerfile: docker/Dockerfile
-        command: [ "php", "/var/www/html/artisan", "schedule:work" ]
-        volumes:
-            - '.:/var/www/html'
-
     mailpit:
         image: 'axllent/mailpit:latest'
         ports:
