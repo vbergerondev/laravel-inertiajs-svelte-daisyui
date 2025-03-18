@@ -30,6 +30,7 @@ final class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::loginView(fn (): Response => inertia('Auth/Login'));
         Fortify::registerView(fn (): Response => inertia('Auth/Register'));
+        Fortify::requestPasswordResetLinkView(fn (): Response => inertia('Auth/ForgotPassword'));
 
         Fortify::createUsersUsing(CreateNewUser::class);
 

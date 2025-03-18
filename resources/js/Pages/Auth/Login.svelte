@@ -31,7 +31,10 @@
                     </div>
 
                     <div>
-                        <label for="password" class="fieldset-label">Password</label>
+                        <div class="flex justify-between">
+                            <label for="password" class="fieldset-label">Password</label>
+                            <a href="/forgot-password" class="link">Forgot password?</a>
+                        </div>
                         <input type="password" id="password" class="input w-full" placeholder="Password" bind:value={$form.password} required />
                     </div>
                 </div>
