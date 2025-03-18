@@ -23,7 +23,7 @@
                     <div>
                         <label for="email" class="fieldset-label">Email</label>
                         <!-- svelte-ignore a11y_autofocus -->
-                        <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} placeholder="Email" bind:value={$form.email} autofocus required />
+                        <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} bind:value={$form.email} autofocus required />
 
                         {#if $form.errors.email}
                             <p class="text-error">{$form.errors.email}</p>
@@ -35,7 +35,7 @@
                             <label for="password" class="fieldset-label">Password</label>
                             <a href="/forgot-password" class="link">Forgot password?</a>
                         </div>
-                        <input type="password" id="password" class="input w-full" placeholder="Password" bind:value={$form.password} required />
+                        <input type="password" id="password" class="input w-full" bind:value={$form.password} required />
                     </div>
                 </div>
 

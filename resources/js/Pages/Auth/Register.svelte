@@ -25,7 +25,7 @@
                     <div>
                         <label for="name" class="fieldset-label">Name</label>
                         <!-- svelte-ignore a11y_autofocus -->
-                        <input type="text" id="name" class="input w-full" class:input-error={$form.errors.name} placeholder="John Doe" bind:value={$form.name} autofocus required />
+                        <input type="text" id="name" class="input w-full" class:input-error={$form.errors.name} bind:value={$form.name} autofocus required />
                         {#if $form.errors.name}
                             <p class="text-error">{$form.errors.name}</p>
                         {/if}
@@ -33,7 +33,7 @@
 
                     <div>
                         <label for="email" class="fieldset-label">Email</label>
-                        <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} placeholder="john@doe.com" bind:value={$form.email} required />
+                        <input type="email" id="email" class="input w-full" class:input-error={$form.errors.email} bind:value={$form.email} required />
                         {#if $form.errors.email}
                             <p class="text-error">{$form.errors.email}</p>
                         {/if}

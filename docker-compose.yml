@@ -22,21 +22,19 @@ services:
             - './docker/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
 
     redis:
-        image: redis
+        image: 'redis'
         ports:
             - '${REDIS_PORT:-6379}:6379'
         volumes:
             - 'redis-data:/data'
 
-    horizon:
-        build:
-            context: .
-            dockerfile: docker/Dockerfile
-        environment:
-            DB_HOST: db
-        command: [ "php", "/var/www/html/artisan", "horizon" ]
-        volumes:
-            - '.:/var/www/html'
+#    horizon:
+#        build:
+#            context: .
+#            dockerfile: docker/Dockerfile
+#        command: [ "php", "/var/www/html/artisan", "horizon" ]
+#        volumes:
+#            - '.:/var/www/html'
 
     mailpit:
         image: 'axllent/mailpit:latest'
