@@ -3,7 +3,7 @@
     import { useForm } from '@inertiajs/svelte'
 
     let form = useForm({
-        email: null,
+        email: '',
     })
 
     function submit(e) {

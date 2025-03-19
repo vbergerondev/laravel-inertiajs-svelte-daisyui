@@ -10,3 +10,5 @@ Route::get('/', fn (): Response => inertia('Welcome'));
 Route::middleware('auth')->group(function (): void {
     Route::get('/home', fn (): Response => inertia('Home'));
 });
+
+// flash('asdad', 'success');
