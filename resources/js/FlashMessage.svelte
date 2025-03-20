@@ -1,6 +1,6 @@
 <script>
-    import { page } from '@inertiajs/svelte'
-    import { fade } from 'svelte/transition';
+    import { page } from "@inertiajs/svelte";
+    import { fade } from "svelte/transition";
 
     let isVisible = $state($page.props.flash !== null);
 

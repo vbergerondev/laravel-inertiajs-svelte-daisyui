@@ -1,8 +1,8 @@
 <script>
-    import { page, router } from '@inertiajs/svelte'
-    import Layout from '../Layout.svelte'
+    import { page, router } from "@inertiajs/svelte";
+    import Layout from "../Layout.svelte";
 
-    const logout = () => router.post('/logout')
+    const logout = () => router.post("/logout");
 </script>
 
 <svelte:head>
