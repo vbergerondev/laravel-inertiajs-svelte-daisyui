@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
+use App\Actions\Fortify\ResetUserPassword;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -30,9 +31,11 @@ final class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::loginView(fn (): Response => inertia('Auth/Login'));
         Fortify::registerView(fn (): Response => inertia('Auth/Register'));
+        Fortify::resetPasswordView(fn (Request $request): Response => inertia('Auth/ResetPassword', ['token' => $request->route('token'), 'email' => $request->input('email')]));
         Fortify::requestPasswordResetLinkView(fn (): Response => inertia('Auth/ForgotPassword'));
 
         Fortify::createUsersUsing(CreateNewUser::class);
+        Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
