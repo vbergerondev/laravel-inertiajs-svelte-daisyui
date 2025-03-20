@@ -17,10 +17,16 @@
     }
 </script>
 
+<svelte:head>
+    <title>Register</title>
+</svelte:head>
+
 <Layout>
     <div class="h-screen flex justify-center items-center">
+
         <div class="card md:min-w-lg">
-            <div class="card-body">
+            <div class="card-body space-y-8">
+                <h1 class="text-xl font-semibold text-center">Register</h1>
                 <form onsubmit={submit}>
                     <div class="space-y-4">
                         <div>
@@ -54,8 +60,11 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-neutral mt-4 w-full" disabled={$form.processing}>Login</button>
+                    <button type="submit" class="btn btn-soft btn-primary mt-4 w-full" disabled={$form.processing}>Create my account</button>
 
+                    <div class="divider max-w-sm mx-auto">OR</div>
+
+                    <div class="text-center">If you already have an account, <a href="/login" class="link">click here to login</a>.</div>
                 </form>
             </div>
         </div>
